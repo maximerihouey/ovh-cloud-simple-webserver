@@ -17,7 +17,7 @@ provider "openstack" {
 resource "openstack_compute_keypair_v2" "keypair" {
   provider   = openstack.ovh
   name       = "keypair"
-  public_key = file("~/.ssh/id_rsa_ovh.pub")
+  public_key = file(var.ssh_key_location)
 }
 
 resource "openstack_compute_instance_v2" "instance" {
