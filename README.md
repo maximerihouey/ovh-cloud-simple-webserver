@@ -64,10 +64,10 @@ You should see the instance on your OVHcloud interface (you might have to refres
 
 ![ovh-instances.png](screenshots/ovh-instances.png)
 
+![ovh-instance.png](screenshots/ovh-instance.png)
+
 The instance is published pubicly on the web and you can access it by copying and paste the IP as a URL.
 Once the `user-data.sh` is fully executed you should see the bare interface of a NGINX server started.
-
-![ovh-instance.png](screenshots/ovh-instance.png)
 
 ![ovh-nginx-up.png](screenshots/ovh-nginx-up.png)
 
