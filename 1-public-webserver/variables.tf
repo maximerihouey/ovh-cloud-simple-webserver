@@ -9,6 +9,6 @@ variable "open_stack_password" {
 }
 
 variable "ssh_key_location" {
-  type = string
+  type    = string
   default = "~/.ssh/id_rsa_ovh.pub"
 }
