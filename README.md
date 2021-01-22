@@ -12,9 +12,13 @@ A few key pieces of information:
 
 ## 1) Webserver on public instance
 
+![1-architecture.png](images/1-architecture.png)
+
 Go to the folder [1-public-webserver](https://github.com/maximerihouey/ovh-cloud-simple-webserver/tree/main/1-public-webserver).
 
 ## 2) Loadbalancer to 2 webservers in private network
+
+![2-architecture.png](images/2-architecture.png)
 
 Go to the folder [2-loadbalancer-private-network](https://github.com/maximerihouey/ovh-cloud-simple-webserver/tree/main/2-loadbalancer-private-network).
 

@@ -1,5 +1,7 @@
 # Webserver on public instance
 
+![1-architecture.png](../images/1-architecture.png)
+
 We are creating several resources:
 - `openstack_compute_instance_v2` a VM instance where a python webserver will be running (achieved using *webserver.sh*)
 - `openstack_networking_secgroup_v2` a Security Group with rules (`openstack_networking_secgroup_rule_v2`) to connect to allow access to the instance via SSH and HTTP
