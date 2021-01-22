@@ -15,6 +15,6 @@ with socketserver.TCPServer(("", PORT), Handler) as httpd:
     httpd.serve_forever()
 EOT
 
-echo "This is a webserver. [${identifier}]" > index.html
+echo "This is a webserver." > index.html
 
 sudo python3 -m index.py 80 &

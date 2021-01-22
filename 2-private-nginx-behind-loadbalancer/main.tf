@@ -31,39 +31,29 @@ resource "openstack_networking_subnet_v2" "subnet_1" {
   ip_version = 4
 }
 
-resource "openstack_networking_secgroup_v2" "secgroup_10" {
+resource "openstack_networking_secgroup_v2" "secgroup" {
   name        = "secgroup_10"
   description = "My neutron security group"
 }
 
-resource "openstack_networking_secgroup_rule_v2" "secgroup_rule_10" {
+resource "openstack_networking_secgroup_rule_v2" "secgroup_rule_ssh" {
   direction         = "ingress"
   ethertype         = "IPv4"
   protocol          = "tcp"
   port_range_min    = 22
   port_range_max    = 22
   remote_ip_prefix  = "0.0.0.0/0"
-  security_group_id = openstack_networking_secgroup_v2.secgroup_10.id
+  security_group_id = openstack_networking_secgroup_v2.secgroup.id
 }
 
-resource "openstack_networking_secgroup_rule_v2" "secgroup_rule_101" {
+resource "openstack_networking_secgroup_rule_v2" "secgroup_rule_http" {
   direction         = "ingress"
   ethertype         = "IPv4"
   protocol          = "tcp"
   port_range_min    = 80
   port_range_max    = 80
   remote_ip_prefix  = "0.0.0.0/0"
-  security_group_id = openstack_networking_secgroup_v2.secgroup_10.id
-}
-
-resource "openstack_networking_secgroup_rule_v2" "secgroup_rule_102" {
-  direction         = "egress"
-  ethertype         = "IPv4"
-  protocol          = "tcp"
-  port_range_min    = 80
-  port_range_max    = 80
-  remote_ip_prefix  = "0.0.0.0/0"
-  security_group_id = openstack_networking_secgroup_v2.secgroup_10.id
+  security_group_id = openstack_networking_secgroup_v2.secgroup.id
 }
 
 resource "openstack_networking_secgroup_v2" "secgroup_20" {
@@ -106,7 +96,7 @@ resource "openstack_compute_instance_v2" "loadbalancer" {
   flavor_name     = "s1-2"
   key_pair        = openstack_compute_keypair_v2.keypair.name
   user_data       = templatefile("haproxy.sh", { ip_addrs = [openstack_compute_instance_v2.instance_1.access_ip_v4, openstack_compute_instance_v2.instance_2.access_ip_v4] })
-  security_groups = [openstack_networking_secgroup_v2.secgroup_10.name]
+  security_groups = [openstack_networking_secgroup_v2.secgroup.name]
 
   network {
     name = "Ext-Net" # Nom de l'interface réseau publique
