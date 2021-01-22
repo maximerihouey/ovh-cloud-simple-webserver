@@ -1,6 +1,5 @@
 resource "openstack_networking_secgroup_v2" "secgroup" {
-  name        = "secgroup_10"
-  description = "My neutron security group"
+  name        = "secgroup"
 }
 
 resource "openstack_networking_secgroup_rule_v2" "secgroup_rule_ssh" {
@@ -25,7 +24,7 @@ resource "openstack_networking_secgroup_rule_v2" "secgroup_rule_http" {
 
 resource "openstack_compute_keypair_v2" "keypair" {
   provider   = openstack.ovh
-  name       = "keypair"
+  name       = "key_pair"
   public_key = file(var.ssh_key_location)
 }
 
