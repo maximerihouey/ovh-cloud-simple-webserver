@@ -1,5 +1,7 @@
 # Loadbalancer to 2 webservers in private network
 
+![2-architecture.png](../images/2-architecture.png)
+
 First of all you need to create a vRack on the OVHcloud interface to allow the creation of private networks:
 
 ![2-vrack.png](../images/2-vrack.png)
