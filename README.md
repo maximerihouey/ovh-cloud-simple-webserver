@@ -26,6 +26,11 @@ The OpenStack interface on OVHcloud let you download an executable that sets sev
 
 To use it simply execute `source openrc.sh` (this will ask for your OpenStack user password).
 
+To verify that everything works you can execute
+```
+openstack catalog list
+```
+
 2. Export your OpenStack user credentials as `terraform` environment variable.
 
 In this tutorial we will use those credentials directly in the `terraform` code, instead having them clear in the code (and risking publishing it) it is better to set them as environment variables.
